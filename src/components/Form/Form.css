@@ -3,14 +3,10 @@
     height: 45px;
 }
 
-.Form {
-    font-family: 'Arial', sans-serif; /* Пример красивого шрифта */
-  }
-  
   img {
     display: inline-block;
     vertical-align: middle;
-    margin-right: 10px; /* Отступ справа от картинки */
+    margin-right: 10px; 
   }
   
   h1 {
@@ -18,14 +14,19 @@
     vertical-align: middle;
   }
   
-  .input {
-    display: block;
-    margin: 10px 0; /* Отступ сверху и снизу */
-    padding: 8px; /* Внутренний отступ */
-    border: 1px solid #ccc; /* Граница инпута */
-    border-radius: 4px; /* Скругление углов */
-    font-size: 16px; /* Размер шрифта */
-  }
+  .Form {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px;
+}
+
+.input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+}
   
   button {
     margin: 5px; /* Отступы вокруг кнопок */
