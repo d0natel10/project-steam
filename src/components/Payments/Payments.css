@@ -1,9 +1,10 @@
-.cart-pay{
+.cart-pay {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; 
 }
 
 .cart-pay img {
+    margin: 20px;
     cursor: pointer;
     transition: all 0.3s ease;
     width: 45px;
@@ -17,7 +18,17 @@
 
 .text-pay {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column; 
+    align-items: flex-start; 
+  }
+  
+  .text-pay span {
+    margin-left: 10px; 
+  }
+
+.text-pay {
+    display: flex;
+    justify-content: around;
     align-items: center;
     margin-bottom: 10px;
   }

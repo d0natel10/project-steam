@@ -25,8 +25,8 @@ const Payments = ({ steamID, deposit }) => {
                 />
             </div>
             <div className={'text-pay'}>
-                <h5>Логин steam {steamID}</h5>
-                <h5>Сумма {deposit} руб.</h5>
+                <h4>Логин steam <span>{steamID}</span></h4>
+                <h4>Сумма <span>{deposit}</span> руб.</h4>
             </div>
             <button className={'button-pay'}>Пополнить</button>
         </div>
