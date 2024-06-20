@@ -11,6 +11,7 @@ const Header = () => {
             <Button onClick={onClose} className={'close-button'}>
                 <img src="/pic/Close.svg" alt="close" />
             </Button>
+            <h1>zzzzz</h1>
         </div>
     );
 };
