@@ -1,19 +1,21 @@
-import { useEffect } from 'react';
+import React, { useEffect } from 'react';
 import './App.css';
-import {useTelegram} from "./components/hooks/useTelegram";
+import { useTelegram } from "./components/hooks/useTelegram";
 import Header from "./components/Header/Header";
-
-const {tg} = useTelegram();
+import Form from "./components/Form/Form";
 
 function App() {
-  useEffect( () => {
+  const { tg } = useTelegram();
+
+  useEffect(() => {
     tg.ready();
-  }, [])
+  }, [tg]);
 
   return (
-    <div className="App">
-      <Header/>
-    </div>
+      <div className="App">
+        <Header />
+        <Form/>
+      </div>
   );
 }
 
