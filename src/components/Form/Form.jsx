@@ -2,9 +2,8 @@ import React from "react";
 import { useState } from "react";
 import './Form.css';
 
-const Form = () => {
-    const [steamID, setSteamID] = useState('');
-    const [deposit, setDeposit] = useState(50); 
+const Form = ({ steamID, setSteamID, deposit, setDeposit }) => {
+    
     const [promo, setPromo] = useState('');
 
     const onChangeSteamID = (e) => {

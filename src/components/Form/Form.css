@@ -10,7 +10,7 @@
   }
   
   .Form{
-    margin-top: 50px;
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -34,6 +34,7 @@
   }
 
   .button-pose{
+    margin-top: 10px;
     display: flex;
     justify-content: space-between;
   }

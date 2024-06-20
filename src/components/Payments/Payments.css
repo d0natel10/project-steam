@@ -1,0 +1,49 @@
+.cart-pay{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 800px;
+    margin-right: 800px;
+}
+
+.cart-pay img {
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+.cart-pay img.selected {
+    box-shadow: 0 0 10px #a052a0; 
+}
+
+h5 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-right: 500px;
+    margin-left: 500px;
+  }
+  
+  .label {
+    font-size: 16px; 
+  }
+  
+  .value {
+    font-size: 15px; 
+  }
+  
+  .button-pay {
+    background-color: #a052a0;  
+    border: none;
+    color: white;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: block; 
+    font-size: 16px;
+    margin: 0 auto; 
+    cursor: pointer;
+    border-radius: 4px; 
+  }
