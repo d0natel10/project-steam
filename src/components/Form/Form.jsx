@@ -22,8 +22,8 @@ const Form = () =>{
     return (
         <div className={'Form'}>
             <img src="/pic/steam.svg" alt="steam" className={'steam-icon'}/>
-            <h1>Пополнить Steam</h1>
-            <h3>Логин steam</h3>
+            <p>Пополнить Steam</p>
+            <p>Логин steam</p>
             <input
             className={'input'}
             type="text"
@@ -31,7 +31,7 @@ const Form = () =>{
             value={steamID}
             onChange={onChangeSteamID}
             />
-            <h3>Сумма пополнения</h3>
+            <p>Сумма пополнения</p>
             <input
             className={'input'}
             type="text"
@@ -39,16 +39,16 @@ const Form = () =>{
             value={deposit}
             onChange={onChangeDeposit}
             />
-            <button>
+            <button className={'button-form'}>
                 +500
             </button>
-            <button>
+            <button className={'button-form'}>
                 +1000
             </button>
-            <button>
+            <button className={'button-form'}>
                 +1500
             </button>
-            <h3>Промокод</h3>
+            <p>Промокод</p>
             <input 
             className={'input'}
             type="text"
