@@ -24,8 +24,10 @@ const Payments = ({ steamID, deposit }) => {
                     onClick={() => selectPayment('sbp')} 
                 />
             </div>
-            <h5><span className={'label'}>Логин steam</span> <span className={'value'}>{steamID}</span></h5>
-            <h5><span className={'label'}>Сумма</span> <span className={'value'}>{deposit} руб.</span></h5>
+            <div className={'text-pay'}>
+                <h5>Логин steam {steamID}</h5>
+                <h5>Сумма {deposit} руб.</h5>
+            </div>
             <button className={'button-pay'}>Пополнить</button>
         </div>
     );

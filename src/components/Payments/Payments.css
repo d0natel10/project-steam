@@ -17,21 +17,13 @@
     box-shadow: 0 0 10px #a052a0; 
 }
 
-h5 {
+.text-pay {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
     margin-right: 500px;
     margin-left: 500px;
-  }
-  
-  .label {
-    font-size: 16px; 
-  }
-  
-  .value {
-    font-size: 15px; 
   }
   
   .button-pay {
