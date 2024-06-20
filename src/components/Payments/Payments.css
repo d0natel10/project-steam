@@ -1,8 +1,6 @@
 .cart-pay{
     display: flex;
     justify-content: space-between;
-    margin-left: 800px;
-    margin-right: 800px;
 }
 
 .cart-pay img {
@@ -22,8 +20,6 @@
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    margin-right: 500px;
-    margin-left: 500px;
   }
   
   .button-pay {
