@@ -9,5 +9,6 @@ export function useTelegram() {
     return {
         tg,
         onClose,
+        queryId: tg.initDataUnsafe?.query_id,
     }
 }
