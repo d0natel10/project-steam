@@ -1,30 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useCallback } from "react";
 import './Payments.css';
-import { useCallback } from "react";
 import { useTelegram } from "../hooks/useTelegram";
 
 const Payments = ({ steamID, deposit }) => {
     const [selectedPayment, setSelectedPayment] = useState(null);
+    const { queryId } = useTelegram(); // Исправлено: добавлены скобки после useTelegram для вызова хука
 
     const selectPayment = (paymentType) => {
         setSelectedPayment(paymentType); 
     }
-    const {queryId} = useTelegram;
 
-    const handlePayment = useCallback(() => {
+    const handlePayment = useCallback(async () => { // Добавлено async для использования await внутри функции
         const data = {
             products: steamID,
-            totalPrice: deposit,
+            totalPrice: deposit * 1.1, // Убедитесь, что вы хотите умножить депозит на 1.1
             queryId,
         }
-        fetch('http://192.168.1.36:8000/web-data', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(data)
-        })
-    }, [steamID, deposit])
+        try {
+            const response = await fetch('http://192.168.1.36:8000/web-data', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            });
+            const responseData = await response.json(); // Добавлено ожидание ответа от сервера
+            console.log(responseData); // Выводим ответ сервера в консоль для отладки
+        } catch (error) {
+            console.error('Ошибка при отправке данных:', error);
+        }
+    }, [steamID, deposit, queryId]); // Добавлен queryId в список зависимостей
 
     return (
         <div className={'Payments'}>
