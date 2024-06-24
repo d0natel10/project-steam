@@ -4,18 +4,18 @@ import { useTelegram } from "../hooks/useTelegram";
 
 const Payments = ({ steamID, deposit }) => {
     const [selectedPayment, setSelectedPayment] = useState(null);
-    const { queryId } = useTelegram(); // Исправлено: добавлены скобки после useTelegram для вызова хука
+    const { queryId } = useTelegram(); 
 
     const selectPayment = (paymentType) => {
         setSelectedPayment(paymentType); 
     }
 
-    const handlePayment = useCallback(async () => { // Добавлено async для использования await внутри функции
+    const handlePayment = useCallback(async () => {
         const data = {
             products: steamID,
-            totalPrice: deposit * 1.1, // Убедитесь, что вы хотите умножить депозит на 1.1
+            totalPrice: deposit * 1.1,
             queryId,
-        }
+        };
         try {
             const response = await fetch('http://192.168.1.36:8000/web-data', {
                 method: 'POST',
@@ -24,12 +24,15 @@ const Payments = ({ steamID, deposit }) => {
                 },
                 body: JSON.stringify(data)
             });
-            const responseData = await response.json(); // Добавлено ожидание ответа от сервера
-            console.log(responseData); // Выводим ответ сервера в консоль для отладки
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const responseData = await response.json();
+            console.log(responseData);
         } catch (error) {
             console.error('Ошибка при отправке данных:', error);
         }
-    }, [steamID, deposit, queryId]); // Добавлен queryId в список зависимостей
+    }, [steamID, deposit, queryId]);
 
     return (
         <div className={'Payments'}>
