@@ -17,7 +17,7 @@ const Payments = ({ steamID, deposit }) => {
             queryId,
         };
         try {
-            const response = await fetch('http://192.168.1.36:8000/web-data', {
+            const response = await fetch('http://45.89.188.200:8000/web-data', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
