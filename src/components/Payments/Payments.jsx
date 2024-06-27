@@ -1,3 +1,4 @@
+//http://45.89.188.200:8000/web-data
 import React, { useState, useCallback } from "react";
 import './Payments.css';
 import { useTelegram } from "../hooks/useTelegram";
@@ -5,34 +6,25 @@ import { useTelegram } from "../hooks/useTelegram";
 const Payments = ({ steamID, deposit }) => {
     const [selectedPayment, setSelectedPayment] = useState(null);
     const { queryId } = useTelegram(); 
+    const [addedItems, setAddedItems] = useState(['xui']);
 
     const selectPayment = (paymentType) => {
         setSelectedPayment(paymentType); 
     }
 
-    const handlePayment = useCallback(async () => {
+    const onSendData = useCallback(() => {
         const data = {
-            products: steamID,
-            totalPrice: deposit * 1.1,
+            products: addedItems,
             queryId,
-        };
-        try {
-            const response = await fetch('http://45.89.188.200:8000/web-data', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(data)
-            });
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            const responseData = await response.json();
-            console.log(responseData);
-        } catch (error) {
-            console.error('Ошибка при отправке данных:', error);
         }
-    }, [steamID, deposit, queryId]);
+        fetch('http://45.89.188.200:8000/web-data', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        })
+    }, [addedItems])
 
     return (
         <div className={'Payments'}>
@@ -54,7 +46,7 @@ const Payments = ({ steamID, deposit }) => {
                 <h4>Логин steam <span>{steamID}</span></h4>
                 <h4>Сумма <span>{deposit*1.1}</span> руб.</h4>
             </div>
-            <button className={'button-pay'} onClick={handlePayment}>Пополнить</button>
+            <button className={'button-pay'} onClick={onSendData}>Пополнить</button>
         </div>
     );
 }
